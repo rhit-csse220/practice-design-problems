@@ -1,4 +1,4 @@
-# Hour Tracker
+# Supercomputer
 
 ## System Description
 The astronomy department maintains a supercomputer that everyone wants to use.  Astronomers submit tasks to the supercomputer that consist of a series of datasets that must be processed independently.  Each task includes a name, priority, and an email address where the results should be sent.  Each dataset just has data.  Given a dataset, it is possible to compute an estimate of how long it will take to run.  The department agrees that the supercomputer should process datasets in priority order, and when priority is equal the supercomputer should select the dataset with the smallest estimate runtime.  However, it must be possible to change a task's priority after it has been submitted.
