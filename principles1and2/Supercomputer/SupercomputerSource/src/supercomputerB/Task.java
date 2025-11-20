@@ -1,4 +1,4 @@
-package SupercomputerSource.src.supercomputerB;
+package supercomputerB;
 
 public class Task {
     public String name;

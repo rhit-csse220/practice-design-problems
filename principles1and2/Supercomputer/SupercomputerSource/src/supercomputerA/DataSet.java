@@ -1,4 +1,4 @@
-package SupercomputerSource.src.supercomputerA;
+package supercomputerA;
 
 public class DataSet {
     //Can only store one task with each dataset resulting in duplicate tasks

@@ -1,4 +1,4 @@
-package SupercomputerSource.src.supercomputerB;
+package supercomputerB;
 
 public class SupercomputerMain {
     private static final WorkQueue workQueue = new WorkQueue();
@@ -18,31 +18,19 @@ public class SupercomputerMain {
     }
 
     public static void main(String[] args) {
-        System.out.println("=== Demonstrating WorkQueue doing everything (design flaw) ===");
-        WorkQueue q = new WorkQueue();
+        SupercomputerMain controller = new SupercomputerMain();
 
-        System.out.println("[1] Submitting task to WorkQueue");
-        q.submitTask("dataset-42", 9, "owner@example.com", new Object());
+        // WorkQueue builds Task and DataSet and stores them; controller just forwards parameters.
+        controller.handleSubmitTask("dataset-42", 5, "owner@example.com", "raw data for dataset-42");
 
-        System.out.println("[2] Asking WorkQueue for the next dataset");
-        Object ds = q.findNextDataset();
-        System.out.println("    -> WorkQueue returned: " + ds);
+        // Controller receives a raw Object from WorkQueue, then has to know about DataSet and Task
+        // to look inside them (message chain, WorkQueue owns selection and structure).
+        Object ds = workQueue.findNextDataset();
 
-        if (ds instanceof DataSet) {
-            Task t = ((DataSet) ds).getTask();
-            System.out.println("[3] Directly peeking into DataSet -> Task and updating via WorkQueue (message chain)");
-            System.out.println("    -> Task name: " + t.name + ", old priority: " + t.priority);
-            q.updatePriority(t.name, 10);
-        } else {
-            System.out.println("[3] Skipping priority update; dataset was not a DataSet instance");
-        }
+        // WorkQueue also owns estimation and processing logic; controller simply delegates.
+        controller.handleProcessNextDataset();
 
-        System.out.println("[4] Requesting estimate from WorkQueue");
-        q.computeEstimateForDataset(ds);
-
-        System.out.println("[5] Telling WorkQueue to process the dataset");
-        q.processDataset(ds);
-
-        System.out.println("=== Done (note how WorkQueue handled submission, selection, estimation, processing) ===");
+        // DataSet itself still has almost no behavior: it mainly holds data and a Task reference.
+        // Most of the real work (submission, selection, estimation, processing) lives in WorkQueue.
     }
 }

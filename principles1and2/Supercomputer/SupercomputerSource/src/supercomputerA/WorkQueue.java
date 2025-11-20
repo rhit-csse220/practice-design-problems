@@ -1,4 +1,4 @@
-package SupercomputerSource.src.supercomputerA;
+package supercomputerA;
 
 import java.util.ArrayList;
 import java.util.List;

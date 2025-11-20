@@ -1,4 +1,4 @@
-package SupercomputerSource.src.supercomputerB;
+package supercomputerB;
 
 public class DataSet {
     public String data;
