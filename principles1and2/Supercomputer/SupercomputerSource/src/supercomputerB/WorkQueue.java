@@ -1,4 +1,4 @@
-package SupercomputerB;
+package SupercomputerSource.src.supercomputerB;
 
 import java.util.*;
 

@@ -1,10 +1,10 @@
-package SupercomputerB;
+package SupercomputerSource.src.supercomputerB;
 
 public class DataSet {
-    public Object data;
+    public String data;
     private Task task;
 
-    public DataSet(Object data, Task task) {
+    public DataSet(String data, Task task) {
         this.data = data;
         this.task = task;
     }

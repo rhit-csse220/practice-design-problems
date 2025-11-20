@@ -1,4 +1,4 @@
-package SupercomputerB;
+package SupercomputerSource.src.supercomputerB;
 
 public class SupercomputerMain {
     private static final WorkQueue workQueue = new WorkQueue();
