@@ -7,7 +7,6 @@ public class Kid {
     String name;
     String gradeLevel;
 
-    // many-to-many link to Book
     List<Book> books = new ArrayList<>();
 
     void printReport() {

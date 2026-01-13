@@ -5,16 +5,13 @@ import java.util.List;
 
 public class BookMain {
 
-    // BAD: central God object owning all Kids and Books
     List<Kid> kids = new ArrayList<>();
     List<Book> books = new ArrayList<>();
 
     void handleNewReading(String bookName, String kidName) {
-        // name-based lookups everywhere
         Kid kid = findOrCreateKid(kidName);
         Book book = findOrCreateBook(bookName);
 
-        // duplicated, string-based relationships on both sides
         kid.addBook(book);
         book.addKid(kid);
     }
@@ -37,7 +34,6 @@ public class BookMain {
         }
     }
 
-    // --- Bad, name-based helpers (God class, message chains) ---
 
     private Kid findOrCreateKid(String kidName) {
         Kid kid = findKidByName(kidName);
@@ -81,10 +77,13 @@ public class BookMain {
     public static void main(String[] args) {
         BookMain app = new BookMain();
 
+        //Stores items in lists in bookmain unlike solution A
+        //Stores strings instead of objects in book and kid
         app.handleNewReading("Moby Dick", "Alice");
         app.handleNewReading("Moby Dick", "Bob");
         app.handleNewReading("1984", "Alice");
 
+        //Information comes from strings rather than from objects
         app.handlePrintReportForKid("Alice");
         app.handlePrintReportForBook("Moby Dick");
     }

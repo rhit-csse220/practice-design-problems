@@ -7,11 +7,12 @@ public class Kid {
     String name;
     String gradeLevel;
 
-    // BAD: parallel lists of book names/authors instead of Book references
+    //lists of book names/authors instead of Book references
     List<String> bookNamesRead = new ArrayList<>();
     List<String> bookAuthorsRead = new ArrayList<>();
 
     void printReport() {
+        //Stored strings to find which books have been read
         System.out.println("Kid: " + name + " (grade " + gradeLevel + ")");
         System.out.println("Books read:");
         for (int i = 0; i < bookNamesRead.size(); i++) {
@@ -27,7 +28,7 @@ public class Kid {
         if (book == null) {
             return;
         }
-        // only store strings, not Book objects
+        //only store strings, not Book objects
         bookNamesRead.add(book.name);
         bookAuthorsRead.add(book.author);
     }

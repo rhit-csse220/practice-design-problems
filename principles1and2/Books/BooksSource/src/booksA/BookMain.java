@@ -5,15 +5,13 @@ import java.util.List;
 
 public class BookMain {
 
-    // God-ish controller holding everything
+    //No Global list of books
     List<Kid> kids = new ArrayList<>();
 
     void handleNewReading(String bookName, String kidName) {
-        // message-chain / name-based lookup everywhere
         Kid kid = findOrCreateKid(kidName);
         Book book = findOrCreateBookForKid(kid, bookName);
 
-        // bidirectional many-to-many, done manually
         kid.addBook(book);
         book.addKid(kid);
     }
@@ -31,6 +29,7 @@ public class BookMain {
         Book found = null;
 
         // No global list of books; search through every kid's books
+        // Can result in data duplication unless properly managed
         for (Kid k : kids) {
             for (Book b : k.books) {
                 if (b.name != null && b.name.equals(bookName)) {
@@ -50,14 +49,14 @@ public class BookMain {
         }
     }
 
-    // --- Bad, name-based lookup helpers (message chains / God class) ---
+
 
     private Kid findOrCreateKid(String kidName) {
         Kid kid = findKidByName(kidName);
         if (kid == null) {
             kid = new Kid();
             kid.name = kidName;
-            kid.gradeLevel = "unknown"; // no real model of grade
+            kid.gradeLevel = "unknown";
             kids.add(kid);
         }
         return kid;
@@ -80,22 +79,24 @@ public class BookMain {
         }
         Book book = new Book();
         book.name = bookName;
-        book.author = "unknown"; // no real model of author
+        book.author = "unknown"; 
         kid.books.add(book);
         return book;
     }
 
 
-    // --- Simple main to exercise the bad design ---
-
     public static void main(String[] args) {
+
         BookMain app = new BookMain();
 
+        //Stores books only in kids
         app.handleNewReading("Moby Dick", "Alice");
         app.handleNewReading("Moby Dick", "Bob");
         app.handleNewReading("1984", "Alice");
 
         app.handlePrintReportForKid("Alice");
+
+        //Has to search all the kids to find the book
         app.handlePrintReportForBook("Moby Dick");
     }
 }

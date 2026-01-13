@@ -8,7 +8,6 @@ public class Book {
     String name;
     String author;
 
-    // many-to-many link to Kid
     List<Kid> kids = new ArrayList<>();
 
     void printReport() {

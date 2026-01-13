@@ -23,17 +23,28 @@ public class HourTrackerMain {
   }
 
   public void handlePrintPayReport(String employeeId) {
-    int c = 0;
+    double totalHours = 0.0;
     for (WorkLog w : workLogs) {
-      if (employeeId.equals(w.employeeId)) {
-          // This doesn't function correctly, not tallying hours but just counting work logs
-        c++;
+      if (!employeeId.equals(w.employeeId)) {
+        continue;
+      }
+      // Skip incomplete logs (started but not stopped yet)
+      if (w.startDateAndTime == null || w.stopDateAndTime == null) {
+        continue;
+      }
+      java.time.LocalDateTime start = java.time.LocalDateTime.parse(w.startDateAndTime);
+      java.time.LocalDateTime stop = java.time.LocalDateTime.parse(w.stopDateAndTime);
+      long minutes = java.time.Duration.between(start, stop).toMinutes();
+      if (minutes > 0) {
+        totalHours += minutes / 60.0;
       }
     }
-    System.out.println("Pay report for " + employeeId + ": " + c);
+    System.out.println("Pay report for " + employeeId + ": " + totalHours + " hours");
+
   }
 
   public static void main(String[] args) {
+    //Employee is not a class
     HourTrackerMain app = new HourTrackerMain();
     app.handleStartWork("e1", "2025-10-31T09:00");
     app.handleStopWork("e1", "2025-10-31T17:00");
