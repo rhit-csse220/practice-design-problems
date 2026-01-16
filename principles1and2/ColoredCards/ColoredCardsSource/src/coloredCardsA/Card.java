@@ -1,8 +1,6 @@
 package coloredCardsA;
 
-/**
- * This class is suspiciously small.
- */
+//This class is suspiciously small.
 public class Card {
 
     private int pointValue;

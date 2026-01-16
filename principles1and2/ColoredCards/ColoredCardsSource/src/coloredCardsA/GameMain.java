@@ -2,9 +2,7 @@ package coloredCardsA;
 
 import java.util.ArrayList;
 
-/**
- * Notice the recurring loops in these methods. How can we avoid these?
- */
+//Notice the recurring loops in these methods. How can we avoid these?
 public class GameMain {
 
     private ArrayList<Card> allCards = new ArrayList<>();
