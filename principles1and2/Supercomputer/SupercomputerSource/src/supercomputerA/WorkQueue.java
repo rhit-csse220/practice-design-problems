@@ -15,7 +15,7 @@ public class WorkQueue {
         }
     }
 
-    void submitTask(String name, int priority, String email, Object datasets) {
+    void submitTask(String name, int priority, String email, String datasets) {
         DataSet d = new DataSet();
         d.taskName = name;
         d.taskPriority = priority;

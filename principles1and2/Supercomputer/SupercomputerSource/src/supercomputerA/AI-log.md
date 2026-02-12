@@ -42,6 +42,9 @@ SupercomputerMain -> WorkQueue
 WorkQueue -> "*" DataSet
 @enduml
 
+### Prompt 2
+fix the files in the package supercomputerA to use the dataset object instead of the generic java Object class
+
 ## Manual Edits
 
 ## Flaw Locations

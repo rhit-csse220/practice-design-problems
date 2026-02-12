@@ -5,7 +5,7 @@ public class DataSet {
     String taskName;
     int taskPriority;
     String taskEmail;
-    Object data;
+    String data;
 
     void computeEstimate() {
         System.out.println("Estimate for " + taskName + ": " + taskPriority);

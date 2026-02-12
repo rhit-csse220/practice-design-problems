@@ -49,5 +49,9 @@ WorkQueue -> "*" Task
 @enduml
 
 ## Manual Edits
+Changed all method calls in workQueue to use DataSet instead of Object which it used by default becuase of no specification in the uml diagram
 
 ## Flaw Locations
+### 3A
+Location UML and WorkQueue.java
+God Class

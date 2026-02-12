@@ -14,7 +14,7 @@ public class SupercomputerMain {
         }
     }
 
-    void handleSubmitTask(String name, int priority, String email, Object datasets) {
+    void handleSubmitTask(String name, int priority, String email, String datasets) {
         queue.submitTask(name, priority, email, datasets);
     }
 
