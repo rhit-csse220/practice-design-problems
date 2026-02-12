@@ -39,3 +39,10 @@ GameMain -> "*" Sprite
 ## Manual Edits
 
 ## Flaw Locations
+### 3A
+Check uml
+main is a god class
+
+### 3B
+Check uml
+main is a god class
