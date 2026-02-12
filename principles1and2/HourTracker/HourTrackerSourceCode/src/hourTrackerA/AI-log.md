@@ -1,4 +1,4 @@
-# BooksB log
+# HourTrackerA log
 
 ## Versions 
 Windsurf: 1.13.9
@@ -18,35 +18,27 @@ Here is the PlantUML:
 @startuml
 skinparam style strictuml
 
-class Book {
-   name
-   author
-   kidsRead
-   kidsGradeLevels
-   printReport()
-   addKid(kid)
-}
-class Kid {
-   name
-   gradeLevel
-   bookNamesRead
-   bookAuthorsRead
-   printReport()
-   addBook(book)
-}
-class BookMain {
-   handleNewReading(bookName, kidName)
-   handlePrintReportForKid(kidName)
-   handlePrintReportForBook(bookName)
+class HourTrackerMain {
+handleStartWork(employeeId, startDateAndTime)
+handleStopWork(employeeId, stopDateAndTime)
+handlePrintPayReport(employeeId)
+  }
+class WorkLog {
+  employeeId
+  startDateAndTime
+  stopDateAndTime
 }
 
-BookMain -> "*" Kid
-BookMain  -> "*" Book
+HourTrackerMain -> "*" WorkLog
 @enduml
 
 ## Manual Edits
 
 ## Flaw Locations
-### 1C
-Location UML and Book Line 11 and Kid line 11
-Book and kid do not store each other but rather information about each other thus duplicating data
+### 1A
+Location WorkLog
+A does not store name, social security #.  Putting that in worklog would cause data duplication.
+
+### 2A
+Location UML
+No Employee class, not storing employee information properly for functionality

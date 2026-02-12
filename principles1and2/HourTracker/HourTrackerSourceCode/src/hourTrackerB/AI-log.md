@@ -1,4 +1,4 @@
-# SuperComputerB log
+# HourTrackerB log
 
 ## Versions 
 Windsurf: 1.13.9
@@ -18,40 +18,30 @@ Here is the PlantUML:
 @startuml
 skinparam style strictuml
 
-class SupercomputerMain {
-  handleProcessNextDataset()
-  handleSubmitTask(name, priority, email, datasets)
-  handleUpdatePriority(name, priority)
-}
-class WorkQueue {
-  updatePriority(name, priority)
-  submitTask(name, priority, email, datasets)
-  findNextDataset()
-  computeEstimateForDataset(dataset)
-  processDataset(dataset)
-}
-
-class Task {
+class HourTrackerMain {
+handleStartWork(employeeId, startDateAndTime)
+handleStopWork(employeeId, stopDateAndTime)
+handlePrintPayReport(employeeId)
+  }
+class Employee {
+  employeeId
   name
-  priority
-  email
+  socialSecurityNum
+  startDateAndTime
+  stopDateAndTime
+  createPayReport()
 }
 
-class DataSet {
-  data
-  getTask()
-}
-
-SupercomputerMain --> WorkQueue
-WorkQueue -> "*" DataSet
-DataSet -> Task
-WorkQueue -> "*" Task
+HourTrackerMain -> "*" Employee
 @enduml
 
 ## Manual Edits
-Changed all method calls in workQueue to use DataSet instead of Object which it used by default becuase of no specification in the uml diagram
 
 ## Flaw Locations
+### 1A
+Location Employee line 11
+Cannot store multiple start and stop date/times resulting in a max of one day of work stored
+
 ### 3A not yet covered
-Location UML and WorkQueue.java
-God Class
+Location UML / Employee class
+Employee class too large, god class
