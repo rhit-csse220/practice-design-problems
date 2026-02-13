@@ -1,8 +1,8 @@
-# SpiritesB log
+# SpiritesA log
 
 ## Versions 
 Windsurf: 1.13.9
-AI Used: Claude Opus 4.6
+AI Used: GPT-5.2 Medium Reasoning
 
 ## Chat Prompts
 ### Prompt 1
@@ -13,6 +13,7 @@ Rules:
 - Use default package (or tell me how to put into package X if I say so).
 - Keep methods tiny, just enough to compile and make the flaw obvious.
 - Provide one simple Main class that exercises the flaw in 5–10 lines.
+
 Here is the PlantUML:
 @startuml
 skinparam style strictuml
@@ -24,33 +25,24 @@ class Sprite {
 }
 
 class GameMain {
-
-  }
-
-class SpriteMover {
 moveAll()
 moveHero(hero:Sprite)
 moveEnemy(enemy:Sprite)
-}
-
-class SpriteCollisionDetector {
 detectAllCollisions()
 onHeroCollisionWithEnemy(enemy:Sprite, hero:Sprite)
 onHeroCollisionWall(wall:Sprite, hero:Sprite)
-}
-
-class SpriteDrawer {
-draw(anything:Sprite)  
-}
-
-SpriteDrawer -> "*" Sprite
-SpriteMover --> "*" Sprite
-SpriteCollisionDetector --> "*" Sprite
-GameMain --> SpriteMover
-GameMain --> SpriteCollisionDetector
-GameMain --> SpriteDrawer
+draw(anyting:Sprite)  
+  }
+GameMain -> "*" Sprite
 @enduml
 
 ## Manual Edits
 
 ## Flaw Locations
+### 3A not yet covered
+Check uml
+main is a god class
+
+### 3B not yet covered
+Check uml
+main is a god class

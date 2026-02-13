@@ -1,4 +1,4 @@
-# SpiritesA log
+# SpiritesC log
 
 ## Versions 
 Windsurf: 1.13.9
@@ -13,7 +13,6 @@ Rules:
 - Use default package (or tell me how to put into package X if I say so).
 - Keep methods tiny, just enough to compile and make the flaw obvious.
 - Provide one simple Main class that exercises the flaw in 5–10 lines.
-
 Here is the PlantUML:
 @startuml
 skinparam style strictuml
@@ -24,25 +23,36 @@ class Sprite {
    imageFile
 }
 
+class Hero {
+move()
+getSprite():Sprite
+}
+class Enemy {
+move()
+onCollisionWithHero(hero:Hero)
+getSprite():Sprite
+}
+class Wall {
+move()
+onCollisionWithHero(hero:Hero)
+getSprite():Sprite
+}
+
 class GameMain {
 moveAll()
-moveHero(hero:Sprite)
-moveEnemy(enemy:Sprite)
 detectAllCollisions()
-onHeroCollisionWithEnemy(enemy:Sprite, hero:Sprite)
-onHeroCollisionWall(wall:Sprite, hero:Sprite)
 draw(anyting:Sprite)  
   }
-GameMain -> "*" Sprite
+GameMain --> Hero
+GameMain --> "*" Wall
+GameMain --> "*" Enemy
+Hero --> Sprite
+Enemy --> Sprite
+Wall --> Sprite
 @enduml
-
 ## Manual Edits
 
 ## Flaw Locations
-### 3A
-Check uml
-main is a god class
-
-### 3B
-Check uml
-main is a god class
+### 5c not yet covered
+Location UML and Enemy and Hero and Wall
+These classes should be subclasses of sprite rather than containing a sprite, this allows for much less code duplication and type predication which is helpful for collision detection
