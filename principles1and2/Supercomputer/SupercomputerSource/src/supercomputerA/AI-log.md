@@ -15,6 +15,8 @@ Rules:
 - Provide one simple Main class that exercises the flaw in 5–10 lines.
 
 Here is the PlantUML:
+
+```plantuml
 @startuml
 skinparam style strictuml
 
@@ -41,6 +43,7 @@ class DataSet {
 SupercomputerMain -> WorkQueue
 WorkQueue -> "*" DataSet
 @enduml
+```
 
 ### Prompt 2
 fix the files in the package supercomputerA to use the dataset object instead of the generic java Object class
