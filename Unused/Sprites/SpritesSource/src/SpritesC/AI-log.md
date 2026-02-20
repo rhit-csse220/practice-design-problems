@@ -14,6 +14,8 @@ Rules:
 - Keep methods tiny, just enough to compile and make the flaw obvious.
 - Provide one simple Main class that exercises the flaw in 5–10 lines.
 Here is the PlantUML:
+
+```plantuml
 @startuml
 skinparam style strictuml
 
@@ -50,6 +52,8 @@ Hero --> Sprite
 Enemy --> Sprite
 Wall --> Sprite
 @enduml
+```
+
 ## Manual Edits
 
 ## Flaw Locations

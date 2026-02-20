@@ -15,6 +15,8 @@ Rules:
 - Provide one simple Main class that exercises the flaw in 5–10 lines.
 
 Here is the PlantUML:
+
+```plantuml
 @startuml
 skinparam style strictuml
 
@@ -55,6 +57,7 @@ Main-> "*" StateData
 StateData--> StateMap
 StateData--> "*" Hospital
 @enduml
+```
 
 ## Manual Edits
 

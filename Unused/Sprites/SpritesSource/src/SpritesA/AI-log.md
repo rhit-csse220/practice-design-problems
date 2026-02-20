@@ -15,6 +15,8 @@ Rules:
 - Provide one simple Main class that exercises the flaw in 5–10 lines.
 
 Here is the PlantUML:
+
+```plantuml
 @startuml
 skinparam style strictuml
 
@@ -35,6 +37,7 @@ draw(anyting:Sprite)
   }
 GameMain -> "*" Sprite
 @enduml
+```
 
 ## Manual Edits
 
