@@ -43,7 +43,7 @@ Kid "*" <-> "*" Book
 ## Manual Edits
 
 ## Flaw Locations
-### 1A/B
+### 1B
 Location UML and BookMain line 33
 Bookmain has no global list of books so has to iterate through every kid to find the book
 Very inefficient and violates storing the required information in BookMain
