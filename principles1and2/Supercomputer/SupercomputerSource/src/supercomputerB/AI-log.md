@@ -15,6 +15,8 @@ Rules:
 - Provide one simple Main class that exercises the flaw in 5–10 lines.
 
 Here is the PlantUML:
+
+```plantuml
 @startuml
 skinparam style strictuml
 
@@ -47,6 +49,7 @@ WorkQueue -> "*" DataSet
 DataSet -> Task
 WorkQueue -> "*" Task
 @enduml
+```
 
 ## Manual Edits
 Changed all method calls in workQueue to use DataSet instead of Object which it used by default becuase of no specification in the uml diagram
