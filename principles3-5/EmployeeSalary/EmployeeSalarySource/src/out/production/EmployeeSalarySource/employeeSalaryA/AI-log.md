@@ -38,6 +38,3 @@ Main-> "*" Employee
 ## Manual Edits
 
 ## Flaw Locations
-### 3A 
-Location Uml and Employee class
-Employee class is too large and does too much
