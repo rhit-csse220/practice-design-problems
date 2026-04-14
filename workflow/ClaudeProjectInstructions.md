@@ -29,9 +29,20 @@ A **Claude Project** lets you save a custom system prompt (called *Instructions*
 
 ---
 
-## Step 2: Set the Project Instructions
+## Step 2: Upload Supporting Files
 
-In the project's **Instructions** field, paste the following text. This is the system prompt that shapes every conversation in the project.
+Upload `OODPs.md` (the CSSE 220 Object Oriented Design Principles) as a project file so Claude can reference the course's specific principles in every conversation.
+
+1. In your project, click **Add content** (or the **+** / **Files** button, depending on your Claude UI).
+2. Upload `OODPs.md` from the `workflow/` folder of this repository.
+
+Claude will now have the numbered list of OO Design Principles available throughout the project and can cite them by number when explaining design flaws.
+
+---
+
+## Step 3: Set the Project Instructions
+
+In the project's **Instructions** field, paste the following text. This is the system prompt that shapes every conversation in the project. (It assumes you have already uploaded `OODPs.md` as a project file in Step 2.)
 
 ---
 
@@ -48,6 +59,7 @@ Rules you must always follow:
 5. Infer the Main class (often named <SystemName>Main) from the provided UML. If it is not clear, prompt the user to clarify which class should contain the main method. The main method should create objects and call methods to exercise the design in 5–10 lines.
 6. Output each file in its own ```java code block, with the filename as a comment on the first line (e.g., // Store.java).
 7. If the user specifies a package name, place all classes in that package.
+8. When explaining design flaws, refer to the CSSE 220 Object Oriented Design Principles in the uploaded OODPs.md file. Cite the relevant principle by number (e.g., "This violates Principle 4 — Minimize dependencies") and explain how the flaw conflicts with that principle.
 
 If I ask you to "fix" something that would change the UML structure, refuse and explain why. Only change the code if I explicitly say the UML has changed.
 ```
@@ -58,7 +70,7 @@ Click **Save** (or the equivalent button in the Claude UI) to store the instruct
 
 ---
 
-## Step 3: Use the Project
+## Step 4: Use the Project
 
 Open a **New Chat** inside your project. You'll see the project name in the header, confirming your instructions are active.
 
@@ -111,7 +123,7 @@ Please revert. This assignment requires preserving the design exactly as shown i
 
 ---
 
-## Step 4: Copy Code into Your IDE
+## Step 5: Copy Code into Your IDE
 
 1. Copy each `java` block from Claude's response.
 2. In your IDE (Eclipse or IntelliJ), create a new `.java` file with the name shown in the comment at the top of the block (e.g., `StoreMain.java`).
